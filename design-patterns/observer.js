@@ -1,26 +1,28 @@
-class SistemaDeNotificacao  {
+class SistemaDeNotificacao {
     #observadores
-    constructor(){
+    constructor() {
         this.#observadores = []
     }
-    addObservador(observador){
+    addObservador(observador) {
         this.#observadores.push(observador)
     }
-    removerObservador(observador){
+    removerObservador(observador) {
         //adiconar filter a lista de observadores
-        this.#observadores = this.#observadores.filter((item)=> item.nome != observador.nome)
+        this.#observadores = this.#observadores.filter(
+            (item) => item.nome != observador.nome
+        )
 
     }
-    notificacao(dados){
+    notificacao(dados) {
         this.#observadores.forEach(observador => observador.update(dados))
     }
 }
 
 class Observador {
-    constructor(nome,){
+    constructor(nome,) {
         this.nome = nome;
     }
-    update(mensagem){
+    update(mensagem) {
         console.log(`O usuario ${this.nome} recebeu a notificacao: ${mensagem}`)
     }
 }
