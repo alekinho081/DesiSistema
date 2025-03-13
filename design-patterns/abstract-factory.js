@@ -48,19 +48,13 @@ class FactoryTecladoMac extends FactoryTeclado{
         return new TecladoMac()
     }
 }
-
 function montarTeclado(factory){
     const teclado = factory.criarTeclado()
 
     console.log('Criando teclado para o sistema operacional', teclado.padrao)
     return teclado
 }
-
 const tipoTeclado = 'Mac'
-
 const factori = tipoTeclado === "Windows" ? new FactoryTecladoWindows : new FactoryTecladoMac
-
-
 const teclado1 = montarTeclado(factori)
-
 teclado1.layout()
