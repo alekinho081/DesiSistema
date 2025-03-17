@@ -212,16 +212,51 @@ console.log(exibirLivro(1))
 function exibirLivros(id){
     const book = getBook(id)
     const {title, author, pages} = book
-    return `O livro ${title} foi escrito por ${author} e publicado e tem ${pages} páginas\n`
+    return `O livro ${title} foi escrito por ${author} e tem ${pages} páginas`
 }
 
 
 function exibirLista(quantidadeLivros){
     let livros = ''
     for(i=1 ;i<quantidadeLivros;i++){
-        livros+= exibirLivros(i).toString()
+        livros+= exibirLivros(i).toString()+'\n'
     }
     return livros
 }
 
 console.log(exibirLista(5))
+
+let hasMovie
+if(book5.hasMovieAdaptation){
+    hasMovie = true
+}else{
+    hasMovie = false
+}
+
+console.log(hasMovie)
+
+function checkMovie(id){
+    let book = getBook(id)
+    return book.hasMovieAdaptation ? 'Este filme tem adaptação' : 'Este filme não tem adaptação'
+}
+
+console.log(checkMovie(5))
+
+function listMovies(){
+    const books = getBooks()
+    let booksBool = []
+    let livros = ''
+    books.forEach((e) => {
+        booksBool.push(e.hasMovieAdaptation)
+    })
+    booksBool.forEach((e) => {
+        if(e){
+            livros+= exibirLivros(i).toString() + '🎬\n'
+        }else{
+            livros+= exibirLivros(i).toString() + '📖\n'
+        }
+    })
+    return livros
+}
+
+console.log(listMovies())
