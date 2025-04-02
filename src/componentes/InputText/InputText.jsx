@@ -1,18 +1,18 @@
 import React from "react";
+import './InputText.css'
 
-const InputText = (props) => {
-    const aoDigitar = (evento) => {
-        aoAlterar(evento.target.value)
-   }
-
+const InputText = ({aoMudar, valor}) => {
+    const digitou = (evento) => {
+        aoMudar(evento.target.value)
+    }
     return(
         <div className="input-text">
-            <label>Tarefa</label>
+            <label>Criar tarefa</label><br/>
             <input
              placeholder="Digite a sua tarefa" 
              required={true} 
+             onChange={digitou}
              value={valor}
-             onChange={aoDigitar}
              />
         </div>
     )
