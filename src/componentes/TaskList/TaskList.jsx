@@ -7,7 +7,7 @@ const TaskList = ({tarefas}) => {
     return(
         <div className="tarefas">
             <h1>Tarefas</h1>
-            {tarefas.map((tarefa) => (<TaskItem  tarefa={tarefa}/>))}
+            {tarefas.map((tarefa, index) => (<TaskItem  tarefa={tarefa}/>))}
         </div>  
 
     )
